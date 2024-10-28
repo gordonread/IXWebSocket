@@ -13,7 +13,7 @@ set (CXX_STANDARD_REQUIRED ON)
 set (CMAKE_CXX_EXTENSIONS OFF)
 set (CMAKE_EXPORT_COMPILE_COMMANDS yes)
 
-option (BUILD_DEMO OFF)
+option (BUILD_DEMO TRUE)
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
   set(CMAKE_POSITION_INDEPENDENT_CODE ON)
@@ -120,7 +120,7 @@ set( IXWEBSOCKET_HEADERS
 )
 
 option(BUILD_SHARED_LIBS "Build shared libraries (.dll/.so) instead of static ones (.lib/.a)" OFF)
-option(USE_TLS "Enable TLS support" FALSE)
+option(USE_TLS "Enable TLS support" TRUE)
 
 if (USE_TLS)
     # default to securetranport on Apple if nothing is configured
@@ -319,7 +319,5 @@ if (USE_WS OR USE_TEST)
   endif()
 endif()
 
-if (BUILD_DEMO) 
   add_executable(demo main.cpp)
   target_link_libraries(demo ixwebsocket) 
-endif()

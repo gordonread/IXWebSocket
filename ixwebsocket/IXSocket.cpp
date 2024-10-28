@@ -20,6 +20,8 @@
 #include <sys/types.h>
 #include <vector>
 
+#include <iostream>
+
 #ifdef min
 #undef min
 #endif
@@ -307,6 +309,9 @@ namespace ix
     bool Socket::writeBytes(const std::string& str,
                             const CancellationRequest& isCancellationRequested)
     {
+        std::cout << "Writing" << std::endl;
+        std::cout << str << std::endl;
+        
         int offset = 0;
         int len = (int) str.size();
 
@@ -393,6 +398,9 @@ namespace ix
             line += c;
         }
 
+        std::cout << "Read" << std::endl;
+        std::cout << line << std::endl;
+        
         return std::make_pair(true, line);
     }
 
